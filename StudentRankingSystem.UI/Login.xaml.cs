@@ -1,9 +1,7 @@
-﻿using StudentRankingSystem.DAL;
-using StudentRankingSystem.DAL.Context;
+﻿using StudentRankingSystem.DAL.Context;
 using StudentRankingSystem.Entities;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,47 +12,48 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace StudentRankingSystem.UI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login : Window
     {
-        public MainWindow()
+        public Login()
         {
             InitializeComponent();
-
-            var loginWindow = new Login();
-            loginWindow.ShowDialog();
-
-            if (!(loginWindow.DialogResult.HasValue && loginWindow.DialogResult.Value))
-            {
-
-                this.Close();
-                return;
-            }
         }
-      
-        private void button_Click(object sender, RoutedEventArgs e)
+
+        private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
+            var login = textBoxLogin.Text;
+            var password = textBoxPassword.Text;
 
             using (StudentRankingSystemContext db = new StudentRankingSystemContext())
-            {
-
-                
+            {              
                 var users = db.Users;
-                
-
                 foreach (var u in users)
                 {
                     MessageBox.Show(u.Login.ToString() + $" {u.Password} ");
                 }
+                User user = users.Where(u => (u.Login == login) && (u.Password == password)).Select(u => u).SingleOrDefault<User>();
+
+
+
+                if (user == null)
+                {
+                    MessageBox.Show(this, "Invalid user name or password", "Authentication Error");
+                }
+                else
+                {
+                    
+                    this.DialogResult = true;
+                }
+
             }
+          
         }
-        
     }
 }

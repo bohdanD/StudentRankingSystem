@@ -16,8 +16,8 @@ namespace StudentRankingSystem.DAL.Context
             var user = new User()
             {
                  
-                Login = "вва",              
-                Password = "12345",
+                Login = "admin",              
+                Password = "123456",
                
             };
 

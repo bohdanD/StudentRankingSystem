@@ -20,8 +20,9 @@ namespace StudentRankingSystem.DAL.Context
 
         // Отражение таблиц базы данных на свойства с типом DbSet
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Teacher> Teachers { get; set; }
 
-      
 
-        }
+    }
     }

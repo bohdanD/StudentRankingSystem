@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Context\StudentRankingSystemContext.cs" />
     <Compile Include="Context\StudentRankingSystemDbInitializer.cs" />
+    <Compile Include="Context\Students.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
