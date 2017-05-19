@@ -121,6 +121,10 @@
       <Project>{a728af30-8e13-49fc-9de0-6733e218df95}</Project>
       <Name>StudentRankingSystem.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StudentRankingSystemOther\StudentRankingSystemOther.csproj">
+      <Project>{35b81f32-0801-4639-85cd-ce7c6b11f5ee}</Project>
+      <Name>StudentRankingSystemOther</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

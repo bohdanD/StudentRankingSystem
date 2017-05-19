@@ -12,7 +12,7 @@ namespace StudentRankingSystem.Entities
         public int StudentId { get; set; }
         public int CourseId { get; set; }
         public double FinalScore { get; set; }
-
+        public int TermNumber { get; set; }
         public DateTime ExamDate { get; set; }
 
     }

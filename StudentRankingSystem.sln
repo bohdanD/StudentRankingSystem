@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentRankingSystem.Entiti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentRankingSystem.DAL", "DAL\StudentRankingSystem.DAL.csproj", "{5ECE533B-BA09-43E0-A7C7-69C43CE9D4EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentRankingSystemOther", "StudentRankingSystemOther\StudentRankingSystemOther.csproj", "{35B81F32-0801-4639-85CD-CE7C6B11F5EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5ECE533B-BA09-43E0-A7C7-69C43CE9D4EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ECE533B-BA09-43E0-A7C7-69C43CE9D4EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ECE533B-BA09-43E0-A7C7-69C43CE9D4EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35B81F32-0801-4639-85CD-CE7C6B11F5EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35B81F32-0801-4639-85CD-CE7C6B11F5EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35B81F32-0801-4639-85CD-CE7C6B11F5EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35B81F32-0801-4639-85CD-CE7C6B11F5EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,6 @@
 ﻿using StudentRankingSystem.DAL.Context;
 using StudentRankingSystem.Entities;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace StudentRankingSystem.UI
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
             var login = textBoxLogin.Text;
-            var password = textBoxPassword.Text;
+            var password = Other.Hashing.Encryptor.GetMD5Hash(textBoxPassword.Text);
 
             using (StudentRankingSystemContext db = new StudentRankingSystemContext())
             {              
@@ -38,20 +39,18 @@ namespace StudentRankingSystem.UI
                 {
                     MessageBox.Show(u.Login.ToString() + $" {u.Password} ");
                 }
+
                 User user = users.Where(u => (u.Login == login) && (u.Password == password)).Select(u => u).SingleOrDefault<User>();
-
-
 
                 if (user == null)
                 {
                     MessageBox.Show(this, "Invalid user name or password", "Authentication Error");
                 }
                 else
-                {
-                    
-                    this.DialogResult = true;
+                {                    
+                    DialogResult = true;
                 }
-
+                
             }
           
         }

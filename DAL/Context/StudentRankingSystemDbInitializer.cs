@@ -1,10 +1,12 @@
 ﻿using StudentRankingSystem.Entities;
+
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace StudentRankingSystem.DAL.Context
 {
@@ -17,8 +19,7 @@ namespace StudentRankingSystem.DAL.Context
             {
                  
                 Login = "admin",              
-                Password = "123456",
-               
+                Password = Other.Hashing.Encryptor.GetMD5Hash("123456"),               
             };
 
             context.Users.Add(user);

@@ -33,7 +33,6 @@ namespace StudentRankingSystem.UI
 
             if (!(loginWindow.DialogResult.HasValue && loginWindow.DialogResult.Value))
             {
-
                 this.Close();
                 return;
             }
