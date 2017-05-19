@@ -10,8 +10,7 @@ namespace StudentRankingSystem.Entities
     {
         public int StudentId { get; set; }
         public string Name { get; set; }
-        public string Surname { get; set; }
-        public int CourseId { get; set; }
+        public string Surname { get; set; }    
         public int GroupId { get; set; }
     }
 

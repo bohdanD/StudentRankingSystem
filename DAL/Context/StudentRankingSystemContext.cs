@@ -10,8 +10,7 @@ namespace StudentRankingSystem.DAL.Context
 {
     public class StudentRankingSystemContext : DbContext
     {
-        // Имя будущей базы данных можно указать через
-        // вызов конструктора базового класса
+         
         public StudentRankingSystemContext() : base("StudentRankingSystem")
         {
           Database.SetInitializer<StudentRankingSystemContext>(new StudentRankingSystemDbInitializer());
@@ -23,7 +22,8 @@ namespace StudentRankingSystem.DAL.Context
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
-
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Score> Scores { get; set; }
 
     }
     }

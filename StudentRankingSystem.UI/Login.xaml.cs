@@ -39,7 +39,10 @@ namespace StudentRankingSystem.UI
                 {
                     MessageBox.Show(u.Login.ToString() + $" {u.Password} ");
                 }
-
+                foreach (var s in db.Courses)
+                {
+                    MessageBox.Show(s.Name.ToString() + $" {s.CourseId} ");
+                }
                 User user = users.Where(u => (u.Login == login) && (u.Password == password)).Select(u => u).SingleOrDefault<User>();
 
                 if (user == null)

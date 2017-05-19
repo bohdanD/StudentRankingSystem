@@ -10,6 +10,6 @@ namespace StudentRankingSystem.Entities
     {
         public int GroupId { get; set; }
         public string Name { get; set; }
-
+        public int CourseId { get; set; }
     }
 }

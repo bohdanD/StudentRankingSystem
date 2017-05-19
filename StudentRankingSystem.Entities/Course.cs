@@ -9,7 +9,7 @@ namespace StudentRankingSystem.Entities
     public class Course
     {
         public int CourseId { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
+        public string Name { get; set; }
+        public int TeacherId { get; set; }
     }
 }
