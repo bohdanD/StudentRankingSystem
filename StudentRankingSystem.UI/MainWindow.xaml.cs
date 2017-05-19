@@ -1,8 +1,10 @@
 ﻿using StudentRankingSystem.DAL;
 using StudentRankingSystem.DAL.Context;
+using StudentRankingSystem.DAL.RetrievingData;
 using StudentRankingSystem.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -37,23 +39,17 @@ namespace StudentRankingSystem.UI
                 return;
             }
         }
-      
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Retriever retriever = new Retriever();
+            dataGrid.ItemsSource = retriever.GetAverageScores();
+            dataGrid_2.ItemsSource = retriever.GetStudentsData();     
+        }
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
 
-            using (StudentRankingSystemContext db = new StudentRankingSystemContext())
-            {
-
-                
-                var users = db.Users;
-                
-
-                foreach (var u in users)
-                {
-                    MessageBox.Show(u.Login.ToString() + $" {u.Password} ");
-                }
-            }
         }
-        
     }
 }

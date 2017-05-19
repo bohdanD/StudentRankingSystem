@@ -5,9 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentRankingSystem.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="164,205,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        Title="MainWindow" Height="350" Width="538">
+    <Grid Margin="0,0,15,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="318*"/>
+            <ColumnDefinition Width="199*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="299" VerticalAlignment="Top" Width="796" Grid.ColumnSpan="2">
+            <TabItem Header="Database management">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Data retrieving">
+                <Grid Background="#FFE5E5E5" Margin="0,0,267,-2">
+                    <Button x:Name="GetRatings" Content="GetRatings" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="26,45,0,0" VerticalAlignment="Top" Height="205" Width="207"/>
+                    <DataGrid x:Name="dataGrid_2" Margin="238,45,0,0" VerticalAlignment="Top" Height="205" HorizontalAlignment="Left" Width="256"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>

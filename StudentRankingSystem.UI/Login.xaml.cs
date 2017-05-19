@@ -31,17 +31,17 @@ namespace StudentRankingSystem.UI
         {
             var login = textBoxLogin.Text;
             var password = Other.Hashing.Encryptor.GetMD5Hash(textBoxPassword.Text);
-
+        
             using (StudentRankingSystemContext db = new StudentRankingSystemContext())
             {              
                 var users = db.Users;
                 foreach (var u in users)
                 {
-                    MessageBox.Show(u.Login.ToString() + $" {u.Password} ");
+                 //   MessageBox.Show(u.Login.ToString() + $" {u.Password} ");
                 }
-                foreach (var s in db.Courses)
+                foreach (var s in db.Scores)
                 {
-                    MessageBox.Show(s.Name.ToString() + $" {s.CourseId} ");
+                  //  MessageBox.Show(s.ScoreId.ToString() + $"{s.CourseId}, { s.FinalScore}, {s.StudentId}  ");
                 }
                 User user = users.Where(u => (u.Login == login) && (u.Password == password)).Select(u => u).SingleOrDefault<User>();
 

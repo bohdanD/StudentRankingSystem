@@ -10,16 +10,20 @@ using System.Threading.Tasks;
 
 namespace StudentRankingSystem.DAL.Context
 {
-   public  class StudentRankingSystemDbInitializer : DropCreateDatabaseIfModelChanges<StudentRankingSystemContext>
-    {    
+    public class StudentRankingSystemDbInitializer : DropCreateDatabaseAlways<StudentRankingSystemContext>
+    {
         protected override void Seed(StudentRankingSystemContext context)
         {
             InitializeUsersTable(context);
             InitializeCoursesTable(context);
+            context.SaveChanges();
             InitializeTeachersTable(context);
             InitializeGroupsTable(context);
-            InitializeStudentsTable(context);          
+            InitializeStudentsTable(context);
+         
 
+            context.SaveChanges();
+            InitializeScoresTable(context);
             context.SaveChanges();
             base.Seed(context);
         }
@@ -76,21 +80,21 @@ namespace StudentRankingSystem.DAL.Context
 
             var teacher1 = new Teacher()
             {
-                Name = "Ivan",
-                Surname = "Tereschenko"
+                Name = "Bill",
+                Surname = "Gates"
             };
 
             var teacher2 = new Teacher()
             {
-                Name = "Ihor",
-                Surname = "Dorosh"
+                Name = "Steve",
+                Surname = "Voznyak"
 
             };
 
             var teacher3 = new Teacher()
             {
-                Name = "Olexandr",
-                Surname = "Pyhluk"
+                Name = "Mark",
+                Surname = "Zuckerberg"
             };
 
             context.Teachers.Add(teacher1);
@@ -99,23 +103,28 @@ namespace StudentRankingSystem.DAL.Context
         }
         private void InitializeGroupsTable(StudentRankingSystemContext context)
         {
+            var FEI51mCourses = context.Courses.Where(c => c.CourseId == 5 || c.CourseId == 3).ToList<Course>();
+            var FEM51Courses = context.Courses.Where(c => c.CourseId == 1 || c.CourseId == 2 || c.CourseId == 4).ToList<Course>();
+            var FEI52Courses = context.Courses.Where(c => c.CourseId == 5 || c.CourseId == 1 || c.CourseId == 2).ToList<Course>();
+
             var group1 = new Group()
             {
                 Name = "FEI-51m",
-                CourseId = 1
+                Courses = new HashSet<Course>(FEI51mCourses)     
             };
 
             var group2 = new Group()
             {
                 Name = "FEM-51",
-                CourseId = 2
+                Courses = new HashSet<Course>(FEM51Courses)          
             };
 
             var group3 = new Group()
             {
                 Name = "FEI-52",
-                CourseId = 3
+                Courses = new HashSet<Course>(FEI52Courses)        
             };
+
             context.Groups.Add(group1);
             context.Groups.Add(group2);
             context.Groups.Add(group3);
@@ -164,7 +173,7 @@ namespace StudentRankingSystem.DAL.Context
                 Surname = "Taranko",
                 GroupId = 3
             };
-            var student8= new Student()
+            var student8 = new Student()
             {
                 Name = "Nadia",
                 Surname = "Vernydub",
@@ -215,7 +224,7 @@ namespace StudentRankingSystem.DAL.Context
             var student16 = new Student()
             {
                 Name = "Victor",
-                Surname = "Yanikovych",
+                Surname = "Yanukovych",
                 GroupId = 1
             };
             var student17 = new Student()
@@ -251,7 +260,84 @@ namespace StudentRankingSystem.DAL.Context
             context.Students.Add(student1);
             context.Students.Add(student2);
             context.Students.Add(student3);
+            context.Students.Add(student4);
+            context.Students.Add(student5);
+            context.Students.Add(student6);
+            context.Students.Add(student7);
+            context.Students.Add(student8);
+            context.Students.Add(student9);
+            context.Students.Add(student10);
+
+            context.Students.Add(student11);
+            context.Students.Add(student12);
+            context.Students.Add(student13);
+            context.Students.Add(student14);
+            context.Students.Add(student15);
+            context.Students.Add(student16);
+            context.Students.Add(student17);
+            context.Students.Add(student18);
+            context.Students.Add(student19);
+            context.Students.Add(student20);
+            context.Students.Add(student21);
         }
+        private void InitializeScoresTable(StudentRankingSystemContext context)
+        {
+            Random rand = new Random();
+
+            //var scores = from st in context.Students
+            //             from grp in context.Groups
+            //             where grp.GroupId == st.GroupId
+            //             from crs in grp.Courses                        
+            //             select new
+            //             {
+            //                 CourseId = crs.CourseId,
+            //                 StudentId = st.StudentId,
+            //                 ExamDate = new DateTime(2017, 5, 15),
+            //                 TermNumber = 2,
+            //                 FinalScore = rand.Next(2, 6)
+            //             };
+
+            //foreach (var s in scores)
+            //{
+            //    context.Scores.Add(new Score
+            //    {
+            //        CourseId = s.CourseId,
+            //        StudentId = s.StudentId,
+            //        ExamDate = s.ExamDate,
+            //        TermNumber = s.TermNumber,
+            //        FinalScore = s.FinalScore
+            //    });
+            //}
+
+            //context.Scores.AddRange(scores);
+
+
+            foreach (var student in context.Students)
+            {
+                foreach (var grp in context.Groups)
+                {
+                    if (student.GroupId == grp.GroupId)
+                    {
+                        foreach (var crs in grp.Courses)
+                        {
+
+                            context.Scores.Add(new Score
+                            {
+                                CourseId = crs.CourseId,
+                                StudentId = student.StudentId,
+                                ExamDate = new DateTime(2017, 5, 15),
+                                TermNumber = 2,
+                                FinalScore = rand.Next(2, 6)
+                            });
+                        }
+                    }
+
+                }
+            }
+
+
+        }
+
 
         #endregion
     }
