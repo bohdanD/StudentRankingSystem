@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace StudentRankingSystem.DAL.RetrievingData
 {
     //Review BD: Use explicit access modifiers.
+    //The interface reference can`t be used in external code
     interface IRetrieve
     {
         ICollection GetAverageScores();
