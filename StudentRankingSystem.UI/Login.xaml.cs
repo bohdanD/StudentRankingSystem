@@ -1,6 +1,6 @@
 ﻿using StudentRankingSystem.DAL.Context;
 using StudentRankingSystem.Entities;
-
+//Review BD: Please remove unnecessary usings.
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +35,7 @@ namespace StudentRankingSystem.UI
             using (StudentRankingSystemContext db = new StudentRankingSystemContext())
             {              
                 var users = db.Users;
+                //Review BD: It would be good to remove this loops that do nothing.
                 foreach (var u in users)
                 {
                  //   MessageBox.Show(u.Login.ToString() + $" {u.Password} ");

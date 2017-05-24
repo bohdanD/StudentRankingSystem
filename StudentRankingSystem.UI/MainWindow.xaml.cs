@@ -18,7 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+//Review BD: Please remove unnecessary usings.
 namespace StudentRankingSystem.UI
 {
     /// <summary>
@@ -46,7 +46,7 @@ namespace StudentRankingSystem.UI
             dataGrid.ItemsSource = retriever.GetAverageScores();
             dataGrid_2.ItemsSource = retriever.GetStudentsData();     
         }
-
+        //Review BD: You need to delete handlers that do nothing.
         private void button_Click(object sender, RoutedEventArgs e)
         {
 
