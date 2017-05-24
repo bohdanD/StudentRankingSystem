@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-
+//Review BD: Please remove unnecessary usings.
 namespace StudentRankingSystem.Other.Hashing
 {
     public static class Encryptor
