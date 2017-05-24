@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StudentRankingSystem.Entities;
 using System.Data.Entity;
-
+//Review BD: Please remove unnecessary usings.
 namespace StudentRankingSystem.DAL.Context
 {
     public class StudentRankingSystemContext : DbContext

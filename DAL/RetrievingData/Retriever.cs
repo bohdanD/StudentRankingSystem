@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StudentRankingSystem.DAL.Context;
-
+//Review BD: Please remove unnecessary usings.
 namespace StudentRankingSystem.DAL.RetrievingData
 {
     public class Retriever : IRetrieve
@@ -23,7 +23,8 @@ namespace StudentRankingSystem.DAL.RetrievingData
                               StudentID = student.StudentId,
                               Score = score.FinalScore
                           };
-
+                //Review BD: Hard to read this statement.
+                //It would be better to use query syntax like in previous statement
                 var averageScores = studentsScores.GroupBy(s => s.StudentID).Select
                                                                                 (g => new
                                                                                    {

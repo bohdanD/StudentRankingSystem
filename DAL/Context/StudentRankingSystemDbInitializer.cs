@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//Review BD: Please remove unnecessary usings.
 
 
 namespace StudentRankingSystem.DAL.Context
@@ -40,6 +41,8 @@ namespace StudentRankingSystem.DAL.Context
             context.Users.Add(user);
         }
 
+        //Review BD: There are creation of many instances of the one class in the following methods.
+        //It would be better to use List and loop to add data to the context.
         private void InitializeCoursesTable(StudentRankingSystemContext context)
         {
             var course1 = new Course()
